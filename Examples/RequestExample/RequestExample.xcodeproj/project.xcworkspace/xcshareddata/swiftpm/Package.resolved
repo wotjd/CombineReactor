@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Binder",
+        "repositoryURL": "https://github.com/ilendemli/Binder.git",
+        "state": {
+          "branch": null,
+          "revision": "74ff5144873178711ce9ccccb9c3808de714f304",
+          "version": "0.1.0"
+        }
+      },
+      {
+        "package": "CombineReactor",
+        "repositoryURL": "https://github.com/ilendemli/CombineReactor.git",
+        "state": {
+          "branch": null,
+          "revision": "b7b2c0d2a1a68497710292806b916a190b2b5aac",
+          "version": "0.3.0"
+        }
+      },
+      {
+        "package": "WeakMapTable",
+        "repositoryURL": "https://github.com/ReactorKit/WeakMapTable.git",
+        "state": {
+          "branch": null,
+          "revision": "9580560169b4b48ba2affe7badba6a7f360495f4",
+          "version": "1.2.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

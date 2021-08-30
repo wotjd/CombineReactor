@@ -12,12 +12,31 @@ let package = Package(
         .library(name: "CombineReactor", targets: ["CombineReactor"])
     ],
     dependencies: [
-	    .package(url: "https://github.com/ReactorKit/WeakMapTable.git", .upToNextMajor(from: "1.1.0"))
+	    .package(url: "https://github.com/ReactorKit/WeakMapTable.git", from: "1.1.0"),
+        .package(url: "https://github.com/CombineCommunity/CombineExt.git", from: "1.0.0"),
+        .package(url: "https://github.com/ilendemli/Binder.git", from: "0.1.0")
     ],
     targets: [
-        .target(name: "CombineReactor", dependencies: ["CombineReactorRuntime", "WeakMapTable"], path: "CombineReactor/CombineReactor/Core"),
-        .target(name: "CombineReactorRuntime", dependencies: [], path: "CombineReactor/CombineReactor/Runtime"),
-        .testTarget(name: "CombineReactorTests", dependencies: ["CombineReactor"], path: "CombineReactor/CombineReactorTests")
+        .target(
+            name: "CombineReactor",
+            dependencies: [
+                "CombineReactorRuntime",
+                "WeakMapTable",
+                "CombineExt",
+                "Binder"
+            ],
+            path: "CombineReactor/CombineReactor/Core"
+        ),
+        .target(
+            name: "CombineReactorRuntime",
+            dependencies: [],
+            path: "CombineReactor/CombineReactor/Runtime"
+        ),
+        .testTarget(
+            name: "CombineReactorTests",
+            dependencies: ["CombineReactor"],
+            path: "CombineReactor/CombineReactorTests"
+        )
     ],
     swiftLanguageVersions: [.v5]
 )

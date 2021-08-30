@@ -2,12 +2,48 @@
   "object": {
     "pins": [
       {
+        "package": "Binder",
+        "repositoryURL": "https://github.com/ilendemli/Binder.git",
+        "state": {
+          "branch": null,
+          "revision": "74ff5144873178711ce9ccccb9c3808de714f304",
+          "version": "0.1.0"
+        }
+      },
+      {
+        "package": "combine-schedulers",
+        "repositoryURL": "https://github.com/pointfreeco/combine-schedulers",
+        "state": {
+          "branch": null,
+          "revision": "6bde3b0063ba8e7537b43744948535ca7e9e0dad",
+          "version": "0.5.2"
+        }
+      },
+      {
+        "package": "CombineExt",
+        "repositoryURL": "https://github.com/CombineCommunity/CombineExt.git",
+        "state": {
+          "branch": null,
+          "revision": "5b8a0c0f178527f9204200505c5fefa6847e528f",
+          "version": "1.3.0"
+        }
+      },
+      {
         "package": "WeakMapTable",
         "repositoryURL": "https://github.com/ReactorKit/WeakMapTable.git",
         "state": {
           "branch": null,
           "revision": "eda6ba374666bb2177034b6418025103cc72bcbf",
           "version": "1.1.0"
+        }
+      },
+      {
+        "package": "xctest-dynamic-overlay",
+        "repositoryURL": "https://github.com/pointfreeco/xctest-dynamic-overlay",
+        "state": {
+          "branch": null,
+          "revision": "50a70a9d3583fe228ce672e8923010c8df2deddd",
+          "version": "0.2.1"
         }
       }
     ]

@@ -28,38 +28,38 @@ extension StoryboardView {
         get { MapTables.reactor.value(forKey: self) as? Reactor }
         set {
             MapTables.reactor.setValue(newValue, forKey: self)
-            
+
             isReactorBound = false
             cancellables = .init()
-            
+
             performBinding()
         }
     }
-    
+
     private var isReactorBound: Bool {
         get { MapTables.isReactorBound.value(forKey: self, default: false) }
         set { MapTables.isReactorBound.setValue(newValue, forKey: self) }
     }
-    
+
     public func performBinding() {
         guard let reactor = reactor, isReactorBound == false else {
             return
         }
-        
+
         if shouldDeferBinding(reactor: reactor) {
             return
         }
-        
+
         bind(reactor: reactor)
         isReactorBound = true
     }
-    
+
     private func shouldDeferBinding(reactor: Reactor) -> Bool {
         #if !os(watchOS)
         guard let viewController = self as? OSViewController else {
             return false
         }
-        
+
         return viewController.isViewLoaded == false
         #else
         return false
@@ -69,11 +69,12 @@ extension StoryboardView {
 
 #if !os(watchOS)
 extension OSViewController {
-    @objc func _reactor_performBinding() {
+    @objc // swiftlint:disable:next identifier_name
+    func _reactor_performBinding() {
         guard let viewController = self as? _ObjCStoryboardView else {
             return
         }
-        
+
         viewController.performBinding()
     }
 }

@@ -13,7 +13,7 @@ extension APIError: LocalizedError {
         switch self {
         case .noData:
             return "No Data"
-            
+
         case .url:
             return "Invalid URL"
         }
@@ -25,13 +25,14 @@ struct APIResponse: Decodable {
 }
 
 struct API {
-    func getRandomImageURL() -> Future<URL, Swift.Error> {
-        guard let url = URL(string: "https://api.thecatapi.com/v1/images/search") else {
-            return Future(failure: APIError.url)
-        }
+    func getRandomImageURL() -> Future<URL, Error> {
+        Future<URL, Error> { promise in
+            guard let url = URL(string: "https://api.thecatapi.com/v1/images/search") else {
+                let error: APIError = .url
+                return promise(.failure(error))
+            }
 
-        return Future<URL, Swift.Error> { (promise) in
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
+            URLSession.shared.dataTask(with: url) { data, _, error in
                 do {
                     if let error = error {
                         throw error
@@ -40,25 +41,28 @@ struct API {
                     guard let data = data else {
                         throw APIError.noData
                     }
-                    
-                    let model = try JSONDecoder().decode([APIResponse].self, from: data)
-                    
+
+                    let decoder = JSONDecoder()
+                    let model = try autoreleasepool {
+                        try decoder.decode([APIResponse].self, from: data)
+                    }
+
                     guard let firstObject = model.first else {
                         throw APIError.noData
                     }
-                    
+
                     promise(.success(firstObject.url))
-                    
+
                 } catch {
                     promise(.failure(error))
                 }
             }.resume()
         }
     }
-    
-    func getImageData(from url: URL) -> Future<Data, Swift.Error> {
-        Future<Data, Swift.Error> { (promise) in
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
+
+    func getImageData(from url: URL) -> Future<Data, Error> {
+        Future<Data, Error> { promise in
+            URLSession.shared.dataTask(with: url) { data, _, error in
                 do {
                     if let error = error {
                         throw error
@@ -67,21 +71,14 @@ struct API {
                     guard let data = data else {
                         throw APIError.noData
                     }
-                    
+
                     promise(.success(data))
-                    
+
                 } catch {
                     promise(.failure(error))
                 }
+                
             }.resume()
-        }
-    }
-}
-
-extension Future {
-    public convenience init(failure: Failure) {
-        self.init { (promise) in
-            promise(.failure(failure))
         }
     }
 }
