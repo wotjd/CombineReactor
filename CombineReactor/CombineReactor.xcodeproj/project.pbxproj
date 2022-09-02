@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5656782E2E030CDB951875B3 /* Pods_CombineReactor_CombineReactorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC74E98F239CA8DCC46B5FB6 /* Pods_CombineReactor_CombineReactorTests.framework */; };
+		DA681659D45EDEF722E233CE /* Pods_CombineReactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF0059BCD010598792DFA66 /* Pods_CombineReactor.framework */; };
 		F662881924653BBB00D643A8 /* CombineReactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F662880F24653BBA00D643A8 /* CombineReactor.framework */; };
 		F662881E24653BBB00D643A8 /* CombineReactorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662881D24653BBB00D643A8 /* CombineReactorTests.swift */; };
 		F662882024653BBB00D643A8 /* CombineReactor.h in Headers */ = {isa = PBXBuildFile; fileRef = F662881224653BBA00D643A8 /* CombineReactor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -14,13 +16,8 @@
 		F662886524653EAB00D643A8 /* ReactorRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = F662885A24653EAB00D643A8 /* ReactorRuntime.m */; };
 		F662886624653EAB00D643A8 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662885C24653EAB00D643A8 /* View.swift */; };
 		F662886724653EAB00D643A8 /* StoryBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662885D24653EAB00D643A8 /* StoryBoardView.swift */; };
-		F662886824653EAB00D643A8 /* ReplaySubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662885E24653EAB00D643A8 /* ReplaySubject.swift */; };
-		F662886924653EAB00D643A8 /* ReplaySubjectSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662885F24653EAB00D643A8 /* ReplaySubjectSubscription.swift */; };
 		F662886A24653EAB00D643A8 /* Combine+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662886024653EAB00D643A8 /* Combine+Extensions.swift */; };
 		F662886B24653EAB00D643A8 /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662886124653EAB00D643A8 /* Reactor.swift */; };
-		F662886C24653EAB00D643A8 /* Binder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662886224653EAB00D643A8 /* Binder.swift */; };
-		F662886D24653EAB00D643A8 /* ReactiveCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662886324653EAB00D643A8 /* ReactiveCompatible.swift */; };
-		F662886F24653EB900D643A8 /* Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662886E24653EB900D643A8 /* Reactive.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +31,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4AF0059BCD010598792DFA66 /* Pods_CombineReactor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CombineReactor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BA5D375C4A2013E52339A6D /* Pods-CombineReactor-CombineReactorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CombineReactor-CombineReactorTests.release.xcconfig"; path = "Target Support Files/Pods-CombineReactor-CombineReactorTests/Pods-CombineReactor-CombineReactorTests.release.xcconfig"; sourceTree = "<group>"; };
+		60C5632F33187FCC3CD29573 /* Pods-CombineReactor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CombineReactor.release.xcconfig"; path = "Target Support Files/Pods-CombineReactor/Pods-CombineReactor.release.xcconfig"; sourceTree = "<group>"; };
+		6FABE0B4DB35E84877D79421 /* Pods-CombineReactor-CombineReactorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CombineReactor-CombineReactorTests.debug.xcconfig"; path = "Target Support Files/Pods-CombineReactor-CombineReactorTests/Pods-CombineReactor-CombineReactorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AC23D71F77E1ED44E3C820D2 /* Pods-CombineReactor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CombineReactor.debug.xcconfig"; path = "Target Support Files/Pods-CombineReactor/Pods-CombineReactor.debug.xcconfig"; sourceTree = "<group>"; };
+		AC74E98F239CA8DCC46B5FB6 /* Pods_CombineReactor_CombineReactorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CombineReactor_CombineReactorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F662880F24653BBA00D643A8 /* CombineReactor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CombineReactor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F662881224653BBA00D643A8 /* CombineReactor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CombineReactor.h; sourceTree = "<group>"; };
 		F662881324653BBA00D643A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,13 +47,8 @@
 		F662885A24653EAB00D643A8 /* ReactorRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactorRuntime.m; sourceTree = "<group>"; };
 		F662885C24653EAB00D643A8 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		F662885D24653EAB00D643A8 /* StoryBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoardView.swift; sourceTree = "<group>"; };
-		F662885E24653EAB00D643A8 /* ReplaySubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaySubject.swift; sourceTree = "<group>"; };
-		F662885F24653EAB00D643A8 /* ReplaySubjectSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaySubjectSubscription.swift; sourceTree = "<group>"; };
 		F662886024653EAB00D643A8 /* Combine+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Combine+Extensions.swift"; sourceTree = "<group>"; };
 		F662886124653EAB00D643A8 /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
-		F662886224653EAB00D643A8 /* Binder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binder.swift; sourceTree = "<group>"; };
-		F662886324653EAB00D643A8 /* ReactiveCompatible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveCompatible.swift; sourceTree = "<group>"; };
-		F662886E24653EB900D643A8 /* Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reactive.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA681659D45EDEF722E233CE /* Pods_CombineReactor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,15 +65,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				F662881924653BBB00D643A8 /* CombineReactor.framework in Frameworks */,
+				5656782E2E030CDB951875B3 /* Pods_CombineReactor_CombineReactorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17DAEA6DC9018102ED3AC19A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4AF0059BCD010598792DFA66 /* Pods_CombineReactor.framework */,
+				AC74E98F239CA8DCC46B5FB6 /* Pods_CombineReactor_CombineReactorTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		64797971E455B84BAF395565 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				AC23D71F77E1ED44E3C820D2 /* Pods-CombineReactor.debug.xcconfig */,
+				60C5632F33187FCC3CD29573 /* Pods-CombineReactor.release.xcconfig */,
+				6FABE0B4DB35E84877D79421 /* Pods-CombineReactor-CombineReactorTests.debug.xcconfig */,
+				5BA5D375C4A2013E52339A6D /* Pods-CombineReactor-CombineReactorTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -86,6 +99,7 @@
 				F662881C24653BBB00D643A8 /* CombineReactorTests */,
 				F662881024653BBA00D643A8 /* Products */,
 				64797971E455B84BAF395565 /* Pods */,
+				17DAEA6DC9018102ED3AC19A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,13 +154,8 @@
 			children = (
 				F662885C24653EAB00D643A8 /* View.swift */,
 				F662885D24653EAB00D643A8 /* StoryBoardView.swift */,
-				F662885E24653EAB00D643A8 /* ReplaySubject.swift */,
-				F662885F24653EAB00D643A8 /* ReplaySubjectSubscription.swift */,
 				F662886024653EAB00D643A8 /* Combine+Extensions.swift */,
 				F662886124653EAB00D643A8 /* Reactor.swift */,
-				F662886224653EAB00D643A8 /* Binder.swift */,
-				F662886324653EAB00D643A8 /* ReactiveCompatible.swift */,
-				F662886E24653EB900D643A8 /* Reactive.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -170,6 +179,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F662882324653BBB00D643A8 /* Build configuration list for PBXNativeTarget "CombineReactor" */;
 			buildPhases = (
+				D4F1F22E8E38C06ABEFA7A47 /* [CP] Check Pods Manifest.lock */,
 				F662880A24653BBA00D643A8 /* Headers */,
 				F662880B24653BBA00D643A8 /* Sources */,
 				F662880C24653BBA00D643A8 /* Frameworks */,
@@ -188,9 +198,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F662882624653BBB00D643A8 /* Build configuration list for PBXNativeTarget "CombineReactorTests" */;
 			buildPhases = (
+				52FD069F0091D7FB33A22E77 /* [CP] Check Pods Manifest.lock */,
 				F662881424653BBB00D643A8 /* Sources */,
 				F662881524653BBB00D643A8 /* Frameworks */,
 				F662881624653BBB00D643A8 /* Resources */,
+				96E69F9DB1FF909492CD36DB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -255,6 +267,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		52FD069F0091D7FB33A22E77 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CombineReactor-CombineReactorTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96E69F9DB1FF909492CD36DB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CombineReactor-CombineReactorTests/Pods-CombineReactor-CombineReactorTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CombineReactor-CombineReactorTests/Pods-CombineReactor-CombineReactorTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CombineReactor-CombineReactorTests/Pods-CombineReactor-CombineReactorTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4F1F22E8E38C06ABEFA7A47 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CombineReactor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F662880B24653BBA00D643A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -263,13 +339,8 @@
 				F662886624653EAB00D643A8 /* View.swift in Sources */,
 				F662886A24653EAB00D643A8 /* Combine+Extensions.swift in Sources */,
 				F662886B24653EAB00D643A8 /* Reactor.swift in Sources */,
-				F662886C24653EAB00D643A8 /* Binder.swift in Sources */,
-				F662886F24653EB900D643A8 /* Reactive.swift in Sources */,
 				F662886524653EAB00D643A8 /* ReactorRuntime.m in Sources */,
-				F662886924653EAB00D643A8 /* ReplaySubjectSubscription.swift in Sources */,
 				F662886724653EAB00D643A8 /* StoryBoardView.swift in Sources */,
-				F662886D24653EAB00D643A8 /* ReactiveCompatible.swift in Sources */,
-				F662886824653EAB00D643A8 /* ReplaySubject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +485,7 @@
 		};
 		F662882424653BBB00D643A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC23D71F77E1ED44E3C820D2 /* Pods-CombineReactor.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -439,6 +511,7 @@
 		};
 		F662882524653BBB00D643A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60C5632F33187FCC3CD29573 /* Pods-CombineReactor.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -464,6 +537,7 @@
 		};
 		F662882724653BBB00D643A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FABE0B4DB35E84877D79421 /* Pods-CombineReactor-CombineReactorTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JYRFMUKFW6;
@@ -482,6 +556,7 @@
 		};
 		F662882824653BBB00D643A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BA5D375C4A2013E52339A6D /* Pods-CombineReactor-CombineReactorTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JYRFMUKFW6;

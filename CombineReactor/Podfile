@@ -6,6 +6,7 @@ target 'CombineReactor' do
   use_frameworks!
 
   pod "WeakMapTable", "~> 1.1"
+  pod "CombineExt"
 
   target 'CombineReactorTests' do
   end

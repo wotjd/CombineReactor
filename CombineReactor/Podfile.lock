@@ -1,16 +1,20 @@
 PODS:
+  - CombineExt (1.8.0)
   - WeakMapTable (1.1.0)
 
 DEPENDENCIES:
+  - CombineExt
   - WeakMapTable (~> 1.1)
 
 SPEC REPOS:
   trunk:
+    - CombineExt
     - WeakMapTable
 
 SPEC CHECKSUMS:
+  CombineExt: c4daa97ef75754d8ef319bd79edeef82652f3eea
   WeakMapTable: d0327eda092be6a8f7c532942ae98dc7948f5d32
 
-PODFILE CHECKSUM: 323f73fe17857ea1ad5389a8bc9af54c5c14331e
+PODFILE CHECKSUM: 454b7424115dd476378061faee77d210b231e1f3
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.11.3
