@@ -21,13 +21,13 @@ public protocol Reactor: AnyObject {
     var initialState: State { get }
     var currentState: State { get }
 
-    var state: AnyPublisher<State, Never> { get }
+    var state: any Publisher<State, Never> { get }
 
-    func transform(action: AnyPublisher<Action, Never>) -> AnyPublisher<Action, Never>
-    func mutate(action: Action) -> AnyPublisher<Mutation, Never>
-    func transform(mutation: AnyPublisher<Mutation, Never>) -> AnyPublisher<Mutation, Never>
+    func transform(action: any Publisher<Action, Never>) -> any Publisher<Action, Never>
+    func mutate(action: Action) -> any Publisher<Mutation, Never>
+    func transform(mutation: any Publisher<Mutation, Never>) -> any Publisher<Mutation, Never>
     func reduce(state: State, mutation: Mutation) -> State
-    func transform(state: AnyPublisher<State, Never>) -> AnyPublisher<State, Never>
+    func transform(state: any Publisher<State, Never>) -> any Publisher<State, Never>
 }
 
 // MARK: - Default Implementations
@@ -47,11 +47,11 @@ extension Reactor {
         set { MapTables.currentState.setValue(newValue, forKey: self) }
     }
 
-    private var _state: AnyPublisher<State, Never> {
+    private var _state: any Publisher<State, Never> {
         MapTables.state.forceCastedValue(forKey: self, default: createStateStream())
     }
 
-    public var state: AnyPublisher<State, Never> {
+    public var state: any Publisher<State, Never> {
         _state
     }
 
@@ -64,24 +64,23 @@ extension Reactor {
         return ImmediateScheduler.shared
     }
 
-    public func createStateStream() -> AnyPublisher<State, Never> {
+    public func createStateStream() -> any Publisher<State, Never> {
         let replaySubject = ReplaySubject<State, Never>(bufferSize: 1)
 
         let action = _action
             .receive(on: scheduler)
-            .eraseToAnyPublisher()
 
         let mutation = transform(action: action)
+            .eraseToAnyPublisher()
             .flatMap { [weak controller = self] action -> AnyPublisher<Mutation, Never> in
                 guard let controller = controller else {
                     return Empty().eraseToAnyPublisher()
                 }
 
-                return controller.mutate(action: action)
+                return controller.mutate(action: action).eraseToAnyPublisher()
             }
-            .eraseToAnyPublisher()
 
-        let state = transform(mutation: mutation)
+        let state = transform(mutation: mutation).eraseToAnyPublisher()
             .scan(initialState) { [weak controller = self] (state, mutation) -> State in
                 guard let controller = controller else {
                     return state
@@ -90,9 +89,8 @@ extension Reactor {
                 return controller.reduce(state: state, mutation: mutation)
             }
             .prepend(initialState)
-            .eraseToAnyPublisher()
 
-        let transformedState = transform(state: state)
+        let transformedState = transform(state: state).eraseToAnyPublisher()
             .handleEvents(receiveOutput: { [weak controller = self] (state) in
                 guard let controller = controller else {
                     return
@@ -108,15 +106,15 @@ extension Reactor {
         return transformedState.eraseToAnyPublisher()
     }
 
-    public func transform(action: AnyPublisher<Action, Never>) -> AnyPublisher<Action, Never> {
+    public func transform(action: any Publisher<Action, Never>) -> any Publisher<Action, Never> {
         action
     }
 
-    public func mutate(action: Action) -> AnyPublisher<Mutation, Never> {
-        Empty().eraseToAnyPublisher()
+    public func mutate(action: Action) -> any Publisher<Mutation, Never> {
+        Empty<Mutation, Never>()
     }
 
-    public func transform(mutation: AnyPublisher<Mutation, Never>) -> AnyPublisher<Mutation, Never> {
+    public func transform(mutation: any Publisher<Mutation, Never>) -> any Publisher<Mutation, Never> {
         mutation
     }
 
@@ -124,13 +122,13 @@ extension Reactor {
         state
     }
 
-    public func transform(state: AnyPublisher<State, Never>) -> AnyPublisher<State, Never> {
+    public func transform(state: any Publisher<State, Never>) -> any Publisher<State, Never> {
         state
     }
 }
 
 extension Reactor where Action == Mutation {
-    public func mutate(action: Action) -> AnyPublisher<Mutation, Never> {
+    public func mutate(action: Action) -> any Publisher<Mutation, Never> {
         Just(action).eraseToAnyPublisher()
     }
 }
