@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 import Combine
 import CombineExt
 
@@ -11,10 +12,12 @@ private enum MapTables {
     static let state = WeakMapTable<AnyObject, AnyObject>()
 }
 
-public protocol Reactor: AnyObject {
+public protocol Reactor: AnyObject, ObservableObject {
     associatedtype Action
     associatedtype Mutation = Action
     associatedtype State
+
+    var objectWillChange: ObservableObjectPublisher { get }
 
     var action: PassthroughSubject<Action, Never> { get }
 
@@ -44,7 +47,10 @@ extension Reactor {
 
     public internal(set) var currentState: State {
         get { MapTables.currentState.forceCastedValue(forKey: self, default: initialState) }
-        set { MapTables.currentState.setValue(newValue, forKey: self) }
+        set {
+            MapTables.currentState.setValue(newValue, forKey: self)
+            self.objectWillChange.send()
+        }
     }
 
     private var _state: any Publisher<State, Never> {
