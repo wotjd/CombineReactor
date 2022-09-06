@@ -26,11 +26,11 @@ public protocol Reactor: AnyObject, ObservableObject {
 
     var state: any Publisher<State, Never> { get }
 
-    func transform(action: any Publisher<Action, Never>) -> any Publisher<Action, Never>
+    func transform(action: AnyPublisher<Action, Never>) -> any Publisher<Action, Never>
     func mutate(action: Action) -> any Publisher<Mutation, Never>
-    func transform(mutation: any Publisher<Mutation, Never>) -> any Publisher<Mutation, Never>
+    func transform(mutation: AnyPublisher<Mutation, Never>) -> any Publisher<Mutation, Never>
     func reduce(state: State, mutation: Mutation) -> State
-    func transform(state: any Publisher<State, Never>) -> any Publisher<State, Never>
+    func transform(state: AnyPublisher<State, Never>) -> any Publisher<State, Never>
 }
 
 // MARK: - Default Implementations
@@ -76,7 +76,7 @@ extension Reactor {
         let action = _action
             .receive(on: scheduler)
 
-        let mutation = transform(action: action)
+        let mutation = transform(action: action.eraseToAnyPublisher())
             .eraseToAnyPublisher()
             .flatMap { [weak controller = self] action -> AnyPublisher<Mutation, Never> in
                 guard let controller = controller else {
@@ -86,7 +86,7 @@ extension Reactor {
                 return controller.mutate(action: action).eraseToAnyPublisher()
             }
 
-        let state = transform(mutation: mutation).eraseToAnyPublisher()
+        let state = transform(mutation: mutation.eraseToAnyPublisher()).eraseToAnyPublisher()
             .scan(initialState) { [weak controller = self] (state, mutation) -> State in
                 guard let controller = controller else {
                     return state
@@ -96,7 +96,7 @@ extension Reactor {
             }
             .prepend(initialState)
 
-        let transformedState = transform(state: state).eraseToAnyPublisher()
+        let transformedState = transform(state: state.eraseToAnyPublisher()).eraseToAnyPublisher()
             .handleEvents(receiveOutput: { [weak controller = self] (state) in
                 guard let controller = controller else {
                     return
@@ -112,7 +112,7 @@ extension Reactor {
         return transformedState.eraseToAnyPublisher()
     }
 
-    public func transform(action: any Publisher<Action, Never>) -> any Publisher<Action, Never> {
+    public func transform(action: AnyPublisher<Action, Never>) -> any Publisher<Action, Never> {
         action
     }
 
@@ -120,7 +120,7 @@ extension Reactor {
         Empty<Mutation, Never>()
     }
 
-    public func transform(mutation: any Publisher<Mutation, Never>) -> any Publisher<Mutation, Never> {
+    public func transform(mutation: AnyPublisher<Mutation, Never>) -> any Publisher<Mutation, Never> {
         mutation
     }
 
@@ -128,7 +128,7 @@ extension Reactor {
         state
     }
 
-    public func transform(state: any Publisher<State, Never>) -> any Publisher<State, Never> {
+    public func transform(state: AnyPublisher<State, Never>) -> any Publisher<State, Never> {
         state
     }
 }
