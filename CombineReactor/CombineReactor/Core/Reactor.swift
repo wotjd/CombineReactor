@@ -24,7 +24,7 @@ public protocol Reactor: AnyObject, ObservableObject {
     var initialState: State { get }
     var currentState: State { get }
 
-    var state: any Publisher<State, Never> { get }
+    var state: AnyPublisher<State, Never> { get }
 
     func transform(action: AnyPublisher<Action, Never>) -> any Publisher<Action, Never>
     func mutate(action: Action) -> any Publisher<Mutation, Never>
@@ -53,11 +53,11 @@ extension Reactor {
         }
     }
 
-    private var _state: any Publisher<State, Never> {
+    private var _state: AnyPublisher<State, Never> {
         MapTables.state.forceCastedValue(forKey: self, default: createStateStream())
     }
 
-    public var state: any Publisher<State, Never> {
+    public var state: AnyPublisher<State, Never> {
         _state
     }
 
@@ -70,7 +70,7 @@ extension Reactor {
         return ImmediateScheduler.shared
     }
 
-    public func createStateStream() -> any Publisher<State, Never> {
+    public func createStateStream() -> AnyPublisher<State, Never> {
         let replaySubject = ReplaySubject<State, Never>(bufferSize: 1)
 
         let action = _action
